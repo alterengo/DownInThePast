@@ -12,6 +12,7 @@
 		3AA25D65210DF39A003150EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AA25D63210DF39A003150EC /* Main.storyboard */; };
 		3AA25D67210DF39C003150EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AA25D66210DF39C003150EC /* Assets.xcassets */; };
 		3AA25D6A210DF39C003150EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AA25D68210DF39C003150EC /* LaunchScreen.storyboard */; };
+		3AA25D72210DF4B6003150EC /* TimeStampCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA25D71210DF4B6003150EC /* TimeStampCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		3AA25D66210DF39C003150EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AA25D69210DF39C003150EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3AA25D6B210DF39C003150EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AA25D71210DF4B6003150EC /* TimeStampCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				3AA25D5F210DF39A003150EC /* AppDelegate.swift */,
 				3AA25D61210DF39A003150EC /* ViewController.swift */,
 				3AA25D63210DF39A003150EC /* Main.storyboard */,
+				3AA25D71210DF4B6003150EC /* TimeStampCell.swift */,
 				3AA25D66210DF39C003150EC /* Assets.xcassets */,
 				3AA25D68210DF39C003150EC /* LaunchScreen.storyboard */,
 				3AA25D6B210DF39C003150EC /* Info.plist */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AA25D72210DF4B6003150EC /* TimeStampCell.swift in Sources */,
 				3AA25D62210DF39A003150EC /* ViewController.swift in Sources */,
 				3AA25D60210DF39A003150EC /* AppDelegate.swift in Sources */,
 			);
