@@ -11,11 +11,13 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var timeStampTableView: UITableView!
+    @IBOutlet weak var resultTimerLabel: UILabel!
     
     var timeStamps: [TimeStamp] = []
     var activeTimerLabel : UILabel = UILabel()
     var timerIsActive = false
     var timer: Timer?
+    let resultTimer = TimeStamp()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,24 +26,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         timeStampTableView.delegate = self
         
         timeStamps.append(TimeStamp())
+        timeStamps[0].setTimer(hours: 0, minutes: 25, seconds: 00)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(screenTapped))
         self.view.addGestureRecognizer(tapGesture)
+        
+        timeStampTableView.contentInset = UIEdgeInsetsMake(24, 0, 0, 0)
     }
 
     //MARK - UITableViewDataSource Stuff
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TimeStampCell", for: indexPath) as! TimeStampCell
         
-        var timeStamp = timeStamps[timeStamps.count - indexPath.row - 1]
+        let timeStamp = timeStamps[timeStamps.count - indexPath.row - 1]
         
         if indexPath.row == 0 {
             activeTimerLabel = cell.TimeStampLabel
+            cell.TimeStampLabel.text = timeStamp.toString()
         }
         else {
             cell.TimeStampLabel.textColor = UIColor.lightGray
+            cell.TimeStampLabel.text = timeStamp.toStringElapsedTime()
         }
-        cell.TimeStampLabel.text = timeStamp.toString()
         
         return cell
         
@@ -65,6 +71,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             // Timer was stopped
             timerIsActive = false
             timeStamps.append(TimeStamp())
+            timeStamps[timeStamps.count-1].setTimer(hours: 0, minutes: 25, seconds: 0)
             activeTimerLabel.textColor = UIColor.blue
             timer?.invalidate()
             timeStampTableView.reloadData()
@@ -81,8 +88,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let activeTimeStamp = timeStamps[timeStamps.count-1]
         
         activeTimeStamp.increase()
+        resultTimer.increase()
         
         activeTimerLabel.text = activeTimeStamp.toString()
+        resultTimerLabel.text = resultTimer.toString()
     }
 }
 
